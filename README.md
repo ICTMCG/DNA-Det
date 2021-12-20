@@ -38,7 +38,7 @@ patchwise contrastive learning to capture globally consistent features that are 
 | 1024x1024| StyleGAN | celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | Google drive, Baiduyun|
 | 1024x1024| StyleGAN2 | Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |  Google drive, Baiduyun| 
 
-## Data preparation.
+## Data preparation
 - Download datasets from above links, and put them into the directory `./dataset`.
 - Prepare dataset split for training, validation, closed-set testing and cross testings.
   - Prepare dataset for the _**celebA**_ experiment. 
@@ -51,7 +51,7 @@ patchwise contrastive learning to capture globally consistent features that are 
   python generate_data_split.py --mode lsun
   ```
   
-  - Prepare dataset for evaluation on GANs in the wild.
+  - Prepare dataset for the _**in the wild**_ experiment.
   ```
   python generate_data_split.py --mode in_the_wild
   ```
@@ -74,13 +74,13 @@ patchwise contrastive learning to capture globally consistent features that are 
   ```
   where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
 
-## Empirical Study on GAN Fingerprint
+<!-- ## Empirical Study on GAN Fingerprint
 - Prepare dataset for architecture classification.
 - Prepare dataset for architecture classification.
 - Prepare dataset for weight classification.
 - Train on patches from a single position.
 - Test on patches from all positions.<br>
-Please refer to our paper and supp for more details.
+Please refer to our paper and supp for more details. -->
 
 ## Training 
 1. Specify training configurations in `./configs/${config_name}.py` <br> 
@@ -91,87 +91,109 @@ Please refer to our paper and supp for more details.
   - Following is an example for _**celebA**_ experiment:
   ```
   data_path=./dataset/
+  train_collection=celeba_train
+  val_collection=celeba_val
   config_name=multiple_cross
   run_id=0
-  device=cuda:0
-  train_collection=multiple_cross_celeba_train
-  val_collection=multiple_cross_celeba_val
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --device $device --run_id $run_id
+  --config_name $config_name --run_id $run_id
   ```
   where
   - `data_path`: The dataset path
   - `train_collection`: The training split directory
   - `val_collection`: The validation split directory
   - `config_name`: The config file
-  - `device`: The gpu device, e.g. cuda:0
   - `run_id`: The running id for numbering this training
   
-  Similarly, for the _**LSUN-bedroom**_ experiment, run:
+  Similarly, for the _**LSUN-bedroom**_ experiment:
   ```
   data_path=./dataset/
+  train_collection=lsun_train
+  val_collection=lsun_val
   config_name=multiple_cross
   run_id=0
-  device=cuda:0
-  train_collection=multiple_cross_lsun_train
-  val_collection=multiple_cross_lsun_val
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --device $device --run_id $run_id
+  --config_name $config_name --run_id $run_id
   ```
-  For evaluation on GANs in the wild, run:
+  For the _**in the wild**_ experiment:
   ```
   data_path=./dataset/
-  config_name=in_the_wild
-  run_id=0
-  device=cuda:0
   train_collection=in_the_wild_train
   val_collection=in_the_wild_val
+  config_name=in_the_wild
+  run_id=0
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --device $device --run_id $run_id
+  --config_name $config_name --run_id $run_id
   ```
- 3. After training, the models and logs are saved in `./${train_collection}$/models/${config_name}/run_${run_id}/`.
+3. After training, the models and logs are saved in `./${data_path}/${train_collection}$/models/${config_name}/run_${run_id}/`.
 
  
 ## Pre-trained models
 We provide pre-trained models [here]() and they have been put to the right path. 
 
 ## Inference 
-- To evaluate the trained model on multiple cross-test setups.
-  Specify settings in `./scipt/run_test.sh` and run:
+1. To evaluate the trained model on multiple cross-test setups. Specify settings in `./scipt/run_test.sh` and run:
   ```
   sh ./script/run_test.sh
   ```
-  - Following is an example for _**celebA**_ experiment:
+  - Following is an example for the _**celebA**_ experiment:
   ```
   cd test
-  model_path=4GAN_s0_128_celeba_train/models/4GAN_s0_128_celeba_val/supcon/${model}
-  python3 pred_eval_list.py --data_path ./dataset --model_dir $model_path \
-  --img_size 512 --resize_size 512 \
-  --device cuda:0 \
+  model_path=./dataset/celeba_train/models/multiple_cross/run_0/model.pth.tar
+  python3 pred_eval_list.py --model_path $model_path --resize_size 512 \
   --test_data_paths \  
-  ./dataset/annotations/celeba_test_closed_set.txt \
-  ./dataset/annotations/celeba_test_cross_seed.txt \
-  ./dataset/annotations/celeba_test_cross_loss.txt \
-  ./dataset/annotations/celeba_test_cross_finetune.txt \
-  ./dataset/annotations/celeba_test_cross_dataset.txt \
-  --save_file results.txt \
-  --predict  
-  
-  
-2. To evalute the trained model on GANs in the wild.
+  ./dataset/celeba_test/annotations/celeba_test_closed_set.txt \
+  ./dataset/celeba_test/annotations/celeba_test_cross_seed.txt \
+  ./dataset/celeba_test/annotations/celeba_test_cross_loss.txt \
+  ./dataset/celeba_test/annotations/celeba_test_cross_finetune.txt \
+  ./dataset/celeba_test/annotations/celeba_test_cross_dataset.txt  
+  ```
+  - Following is an example for the _**LSUN-bedroom**_ experiment:
+  ```
+  cd test
+  model_path=./dataset/lsun_train/models/multiple_cross/run_0/model.pth.tar
+  python3 pred_eval_list.py --model_path $model_path --resize_size 512 \
+  --test_data_paths \  
+  ./dataset/lsun_test/annotations/lsun_test_closed_set.txt \
+  ./dataset/lsun_test/annotations/lsun_test_cross_seed.txt \
+  ./dataset/lsun_test/annotations/lsun_test_cross_loss.txt \
+  ./dataset/lsun_test/annotations/lsun_test_cross_finetune.txt \
+  ./dataset/lsun_test/annotations/lsun_test_cross_dataset.txt  
+  ```
+  - Following is an example for the _**in the wild**_ experiment:
+  ```
+  cd test
+  model_path=./dataset/in_the_wild_train/models/in_the_wild/run_0/model.pth.tar
+  python3 pred_eval_list.py --model_path $model_path --resize_size 128 \
+  --test_data_paths \  
+  ./dataset/in_the_wild_test/annotations/in_the_wild_test_closed_set.txt \
+  ./dataset/in_the_wild_test/annotations/in_the_wild_test_cross_dataset.txt  
+  ```
+  After running, the result will be saved in `./${data_path}/${test_collection}$/pred/${config_name}/run_${run_id}/result.txt`.
+
+2. To evalute the model's robustness against common post processings. Specify settings in `./scipt/run_test_robustness.sh` and run:
+  ```
+  sh ./script/run_test_robustness.sh
+  ```
+  - Following is an example for the _**celebA**_ experiment:
+  ```
+  cd test
+  model_path=./dataset/celeba_train/models/multiple_cross/run_0/model.pth.tar
+  python3 pred_eval_rob.py --model_path $model_path --resize_size 512 \
+  --perturb_type crop blur jpeg noise light \
+  --test_data_paths \  
+  ./dataset/celeba_test/annotations/celeba_test_closed_set.txt \
+  ./dataset/celeba_test/annotations/celeba_test_cross_dataset.txt  
+  ```
+  After running, the result will be saved in `./${data_path}/${test_collection}$/pred/${config_name}/run_${run_id}/result_${perturb_type}.txt`.
 
 
-3. To evalute the model's robustness against common post processings.
-
-
-## Visualization
+<!-- ## Visualization
 
 1. To viusalize the learned features using TSNE.
-
-
 2. To visulize what regions the model relies on for decision using GradCAM.
 
-
+ -->
 ## Citation
 If you find our model/method/dataset useful, please cite our work
 ```
@@ -181,11 +203,10 @@ If you find our model/method/dataset useful, please cite our work
 ## Acknowledgement
 This work was supported by the Project of Chinese Academy of Sciences (E141020), the Project of Institute of Computing Technology, Chinese Academy of Sciences (E161020), Zhejiang Provincial Key Research and Development Program of China (No. 2021C01164), and the National Natural Science Foundation of China (No. 62172420).
 
-
-last update: December, 2021 <br>
+<!-- last update: December, 2021 <br>
 Tianyun Yang <br>
 yangtianyun19z At ict dot ac dot cn <br>
-
+ -->
 
 
 
