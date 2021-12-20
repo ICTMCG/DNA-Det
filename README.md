@@ -43,12 +43,12 @@ patchwise contrastive learning to capture globally consistent features that are 
 - Prepare dataset split for training, validation, closed-set testing and cross testings.
   - Prepare dataset for the _**celebA**_ experiment. 
   ```
-  python generate_data_split.py --mode multiple_cross_celeba
+  python generate_data_split.py --mode celeba
   ```
   
   - Prepare dataset for the _**LSUN-bedroom**_ experiment.
   ```
-  python generate_data_split.py --mode multiple_cross_lsun
+  python generate_data_split.py --mode lsun
   ```
   
   - Prepare dataset for evaluation on GANs in the wild.
@@ -60,8 +60,11 @@ patchwise contrastive learning to capture globally consistent features that are 
   dataset
   ├── ${mode}_test
   │   └── annotations
-  │       ├── ${mode}_test.txt
-  │       └── ${mode}_test_cross.txt
+  │       ├── ${mode}_test_closed_set.txt
+  │       ├── ${mode}_test_cross_seed.txt
+  │       ├── ${mode}_test_cross_loss.txt
+  │       ├── ${mode}_test_cross_finetune.txt
+  │       └── ${mode}_test_cross_dataset.txt
   ├── ${mode}_train
   │   └── annotations
   │       └── ${mode}_train.txt
@@ -69,7 +72,7 @@ patchwise contrastive learning to capture globally consistent features that are 
       └── annotations
           └── ${mode}_val.txt
   ```
-  where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross.txt` are the txt files for training, validation, closed-set testing and cross testing spilts.
+  where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
 
 ## Empirical Study on GAN Fingerprint
 - Prepare dataset for architecture classification.
@@ -133,9 +136,28 @@ Please refer to our paper and supp for more details.
 We provide pre-trained models [here]() and they have been put to the right path. 
 
 ## Inference 
-1. To evaluate the trained model on multiple cross-test setups.
-
-
+- To evaluate the trained model on multiple cross-test setups.
+  Specify settings in `./scipt/run_test.sh` and run:
+  ```
+  sh ./script/run_test.sh
+  ```
+  - Following is an example for _**celebA**_ experiment:
+  ```
+  cd test
+  model_path=4GAN_s0_128_celeba_train/models/4GAN_s0_128_celeba_val/supcon/${model}
+  python3 pred_eval_list.py --data_path ./dataset --model_dir $model_path \
+  --img_size 512 --resize_size 512 \
+  --device cuda:0 \
+  --test_data_paths \  
+  ./dataset/annotations/celeba_test_closed_set.txt \
+  ./dataset/annotations/celeba_test_cross_seed.txt \
+  ./dataset/annotations/celeba_test_cross_loss.txt \
+  ./dataset/annotations/celeba_test_cross_finetune.txt \
+  ./dataset/annotations/celeba_test_cross_dataset.txt \
+  --save_file results.txt \
+  --predict  
+  
+  
 2. To evalute the trained model on GANs in the wild.
 
 
