@@ -38,18 +38,41 @@ patchwise contrastive learning to capture globally consistent features that are 
 | 1024x1024| StyleGAN | celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | Google drive, Baiduyun|
 | 1024x1024| StyleGAN2 | Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |  Google drive, Baiduyun| 
 
-## Data preparation
-- Prepare dataset for evaluation on multiple cross-test setups
-```
-cd DataPrepare/
-python generate_.py
-```
-- Prepare dataset for evaluation on gans in the wild
-```
-python generate_.py
-```
+## Data preparation.
+- Download datasets from above links, and put them into the directory `./dataset`.
+- Prepare dataset split for training, validation, closed-set testing and cross testings.
+  - Prepare dataset for the _**celebA**_ experiment. 
+  ```
+  python generate_data_split.py --mode multiple_cross_celeba
+  ```
+  
+  - Prepare dataset for the _**LSUN-bedroom**_ experiment.
+  ```
+  python generate_data_split.py --mode multiple_cross_lsun
+  ```
+  
+  - Prepare dataset for evaluation on GANs in the wild.
+  ```
+  python generate_data_split.py --mode in_the_wild
+  ```
+  After running `generate_data_split.py`, the folder should be like this:
+  ```
+  dataset
+  ├── ${mode}_test
+  │   └── annotations
+  │       ├── ${mode}_test.txt
+  │       └── ${mode}_test_cross.txt
+  ├── ${mode}_train
+  │   └── annotations
+  │       └── ${mode}_train.txt
+  └── ${mode}_val
+      └── annotations
+          └── ${mode}_val.txt
+  ```
+  where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross.txt` are the txt files for training, validation, closed-set testing and cross testing spilts.
 
 ## Empirical Study on GAN Fingerprint
+- Prepare dataset for architecture classification.
 - Prepare dataset for architecture classification.
 - Prepare dataset for weight classification.
 - Train on patches from a single position.
@@ -62,26 +85,52 @@ Please refer to our paper and supp for more details.
   ```
   sh ./script/run_train.sh
   ```
-  - Following is an example for `run_train.sh`:
+  - Following is an example for _**celebA**_ experiment:
   ```
   data_path=./dataset/
-  config_name=default
+  config_name=multiple_cross
   run_id=0
   device=cuda:0
-  train_collection=4GAN_128_celeba_train
-  val_collection=4GAN_128_celeba_val
+  train_collection=multiple_cross_celeba_train
+  val_collection=multiple_cross_celeba_val
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
   --config_name $config_name --device $device --run_id $run_id
   ```
   where
   - `data_path`: The dataset path
-  - `train_collection`: The training split 
-  - `val_collection`: The validation split
+  - `train_collection`: The training split directory
+  - `val_collection`: The validation split directory
   - `config_name`: The config file
   - `device`: The gpu device, e.g. cuda:0
   - `run_id`: The running id for numbering this training
-## Pre-trained models
+  
+  Similarly, for the _**LSUN-bedroom**_ experiment, run:
+  ```
+  data_path=./dataset/
+  config_name=multiple_cross
+  run_id=0
+  device=cuda:0
+  train_collection=multiple_cross_lsun_train
+  val_collection=multiple_cross_lsun_val
+  python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
+  --config_name $config_name --device $device --run_id $run_id
+  ```
+  For evaluation on GANs in the wild, run:
+  ```
+  data_path=./dataset/
+  config_name=in_the_wild
+  run_id=0
+  device=cuda:0
+  train_collection=in_the_wild_train
+  val_collection=in_the_wild_val
+  python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
+  --config_name $config_name --device $device --run_id $run_id
+  ```
+ 3. After training, the models and logs are saved in `./${train_collection}$/models/${config_name}/run_${run_id}/`.
 
+ 
+## Pre-trained models
+We provide pre-trained models [here]() and they have been put to the right path. 
 
 ## Inference 
 1. To evaluate the trained model on multiple cross-test setups.
