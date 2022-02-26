@@ -17,10 +17,12 @@ patchwise contrastive learning to capture globally consistent features that are 
 - NVIDIA GPU + CUDA 11.1
 - Python 3.7.10
 - pytorch 1.9.0
-- To install the other Python dependencies, run `pip3 install -r requirements.txt`.
+<!-- - To install the other Python dependencies, run `pip3 install -r requirements.txt`. -->
 
 ## Datasets
-| Resolution | Real, GAN | Content | Source | Model, Data | 
+You can download the whole dataset from [here](), the detailed information about this dataset are shown below.
+
+<!-- | Resolution | Real, GAN | Content | Source | Model, Data | 
 |:-----------------:|:---------:|:----------:|:----------:|:----------:|
 | 128x128| Real | CelebA, LSUN-bedroom | [CelebA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [LSUN](https://www.yf.io/p/lsun) | Google drive, Baiduyun|
 | 128x128| ProGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints) | Google drive, Baiduyun|
@@ -34,33 +36,50 @@ patchwise contrastive learning to capture globally consistent features that are 
 | 256x256| StackGAN2 |cat, church, bird, bedroom, dog | [StackGAN-v2](https://github.com/hanzhanggit/StackGAN-v2)| Google drive, Baiduyun|
 | 256x256| CycleGAN |winter, orange apple, horse, summer, zebra | [CNNDetection](https://github.com/peterwang512/CNNDetection) |Google drive, Baiduyun|
 | 256x256| StyleGAN2 | cat, church horse | [CNNDetection](https://github.com/peterwang512/CNNDetection) | Google drive, Baiduyun|
-| 1024x1024| Real | FFHQ, CeleA-HQ|  FFHQ, CeleA-HQ| Google drive, Baiduyun|
-| 1024x1024| StyleGAN | celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | Google drive, Baiduyun|
-| 1024x1024| StyleGAN2 | Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |  Google drive, Baiduyun| 
+| 1024x1024| Real | FFHQ, CeleA-HQ|  [FFHQ](https://github.com/NVlabs/ffhq-dataset), [CeleA-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) | Google drive, Baiduyun|
+| 1024x1024| StyleGAN | FFHQ, celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | Google drive, Baiduyun|
+| 1024x1024| StyleGAN2 | FFHQ, Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |  Google drive, Baiduyun|  -->
+
+| Resolution | Real, GAN | Content | Source |
+|:-----------------:|:---------:|:----------:|:----------:|
+| 128x128| Real | CelebA, LSUN-bedroom | [CelebA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [LSUN](https://www.yf.io/p/lsun)|
+| 128x128| ProGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints)|
+| 128x128| MMDGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints)|
+| 128x128| SNGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints)|
+| 128x128| CramerGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints)|
+| 128x128| InfoMaxGAN | CelebA, LSUN-bedroom |[mimicry](https://github.com/kwotsin/mimicry)|
+| 128x128| SSGAN | CelebA, LSUN-bedroom |[mimicry](https://github.com/kwotsin/mimicry)|
+| 256x256| Real | cat, airplane, boat, horse, sofa, cow, dog, train, bicycle, bottle, diningtable, motorbike, sheep, tvmonitor, bird, bus, chair, person, pottedplant, car | [CNNDetection](https://github.com/peterwang512/CNNDetection) |
+| 256x256| ProGAN | cat, airplane, boat, horse, sofa, cow, dog, train, bicycle, bottle, diningtable, motorbike, sheep, tvmonitor, bird, bus, chair, person, pottedplant, car |[CNNDetection](https://github.com/peterwang512/CNNDetection) |
+| 256x256| StackGAN2 |cat, church, bird, bedroom, dog | [StackGAN-v2](https://github.com/hanzhanggit/StackGAN-v2)|
+| 256x256| CycleGAN |winter, orange apple, horse, summer, zebra | [CNNDetection](https://github.com/peterwang512/CNNDetection) |
+| 256x256| StyleGAN2 | cat, church horse | [CNNDetection](https://github.com/peterwang512/CNNDetection) |
+| 1024x1024| Real | FFHQ, CeleA-HQ|  [FFHQ](https://github.com/NVlabs/ffhq-dataset), [CeleA-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) |
+| 1024x1024| StyleGAN | FFHQ, celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |
+| 1024x1024| StyleGAN2 | FFHQ, Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | 
 
 ## Data preparation
-- Download datasets from above links, and put them into the directory `./dataset`.
+- Download dataset, and put them into the directory `./datasets`.
 - Prepare dataset split for training, validation, closed-set testing and cross testings.
   - Prepare dataset for the _**celebA**_ experiment. 
   ```
-  python generate_data_split.py --mode celeba
+  python generate_data_multiple_cross.py --mode celeba
   ```
   
   - Prepare dataset for the _**LSUN-bedroom**_ experiment.
   ```
-  python generate_data_split.py --mode lsun
+  python generate_data_multiple_cross.py --mode lsun
   ```
-  
   - Prepare dataset for the _**in the wild**_ experiment.
   ```
-  python generate_data_split.py --mode in_the_wild
+  python generate_data_in_the_wild.py --mode in_the_wild
   ```
-  After running `generate_data_split.py`, the folder should be like this:
+  After generation, the folder should be like this:
   ```
   dataset
   ├── ${mode}_test
   │   └── annotations
-  │       ├── ${mode}_test_closed_set.txt
+  │       ├── ${mode}_test.txt
   │       ├── ${mode}_test_cross_seed.txt
   │       ├── ${mode}_test_cross_loss.txt
   │       ├── ${mode}_test_cross_finetune.txt
@@ -73,6 +92,7 @@ patchwise contrastive learning to capture globally consistent features that are 
           └── ${mode}_val.txt
   ```
   where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
+- **Quick implement**: We provide generated data txt files, you can be download from [here]().
 
 <!-- ## Empirical Study on GAN Fingerprint
 - Prepare dataset for architecture classification.
@@ -81,6 +101,12 @@ patchwise contrastive learning to capture globally consistent features that are 
 - Train on patches from a single position.
 - Test on patches from all positions.<br>
 Please refer to our paper and supp for more details. -->
+
+## Pretrain on Image Transformations
+  ```
+  sh ./script/run_train_pretrain.sh
+  ```
+After training, the model and logs are saved in `./dataset/pretrain_train/models/pretrain_val/run_0/model.pth`.
 
 ## Training 
 1. Specify training configurations in `./configs/${config_name}.py` <br> 
@@ -93,10 +119,12 @@ Please refer to our paper and supp for more details. -->
   data_path=./dataset/
   train_collection=celeba_train
   val_collection=celeba_val
-  config_name=multiple_cross
+  config_name=celeba
   run_id=0
+  pretrain_model_path=./dataset/pretrain_train/models/model.pth
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --run_id $run_id
+  --config_name $config_name --run_id $run_id \
+  --pretrain_model_path $pretrain_model_path 
   ```
   where
   - `data_path`: The dataset path
@@ -104,16 +132,19 @@ Please refer to our paper and supp for more details. -->
   - `val_collection`: The validation split directory
   - `config_name`: The config file
   - `run_id`: The running id for numbering this training
+  - `pretrain_model_path`: The pretrain model on image transformation classification
   
   Similarly, for the _**LSUN-bedroom**_ experiment:
   ```
   data_path=./dataset/
   train_collection=lsun_train
   val_collection=lsun_val
-  config_name=multiple_cross
+  config_name=lsun
   run_id=0
+  pretrain_model_path=./datasets/pretrain_train/models/model.pth
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --run_id $run_id
+  --config_name $config_name --run_id $run_id \
+  --pretrain_model_path $pretrain_model_path 
   ```
   For the _**in the wild**_ experiment:
   ```
@@ -122,27 +153,28 @@ Please refer to our paper and supp for more details. -->
   val_collection=in_the_wild_val
   config_name=in_the_wild
   run_id=0
+  pretrain_model_path=./datasets/pretrain_train/models/model.pth
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
-  --config_name $config_name --run_id $run_id
+  --config_name $config_name --run_id $run_id \
+  --pretrain_model_path $pretrain_model_path 
   ```
-3. After training, the models and logs are saved in `./${data_path}/${train_collection}$/models/${config_name}/run_${run_id}/`.
+3. After training, the models and logs are saved in `./${data_path}/${train_collection}$/models/${val_collection}/${config_name}/run_${run_id}/`.
 
- 
 ## Pre-trained models
-We provide pre-trained models [here]() and they have been put to the right path. 
+We provide pre-trained models [here]() and you should put them into the `model_path` in `./script/run_test.sh`.
 
 ## Inference 
-1. To evaluate the trained model on multiple cross-test setups. Specify settings in `./scipt/run_test.sh` and run:
+To evaluate the trained model on multiple cross-test setups. Specify settings in `./scipt/run_test.sh` and run:
   ```
   sh ./script/run_test.sh
   ```
   - Following is an example for the _**celebA**_ experiment:
   ```
-  cd test
-  model_path=./dataset/celeba_train/models/multiple_cross/run_0/model.pth.tar
-  python3 pred_eval_list.py --model_path $model_path --resize_size 512 \
+  config_name=celeba
+  model_path=./dataset/celeba_train/models/celeba_val/celeba/run_0/model.pth
+  python3 pred_eval.py --model_path $model_path --config_name $config_name \
   --test_data_paths \  
-  ./dataset/celeba_test/annotations/celeba_test_closed_set.txt \
+  ./dataset/celeba_test/annotations/celeba_test.txt \
   ./dataset/celeba_test/annotations/celeba_test_cross_seed.txt \
   ./dataset/celeba_test/annotations/celeba_test_cross_loss.txt \
   ./dataset/celeba_test/annotations/celeba_test_cross_finetune.txt \
@@ -150,11 +182,11 @@ We provide pre-trained models [here]() and they have been put to the right path.
   ```
   - Following is an example for the _**LSUN-bedroom**_ experiment:
   ```
-  cd test
-  model_path=./dataset/lsun_train/models/multiple_cross/run_0/model.pth.tar
-  python3 pred_eval_list.py --model_path $model_path --resize_size 512 \
+  config_name=lsun
+  model_path=./dataset/lsun_train/models/lsun_val/lsun/run_0/model.pth
+  python3 pred_eval.py --model_path $model_path --config_name $config_name \
   --test_data_paths \  
-  ./dataset/lsun_test/annotations/lsun_test_closed_set.txt \
+  ./dataset/lsun_test/annotations/lsun_test.txt \
   ./dataset/lsun_test/annotations/lsun_test_cross_seed.txt \
   ./dataset/lsun_test/annotations/lsun_test_cross_loss.txt \
   ./dataset/lsun_test/annotations/lsun_test_cross_finetune.txt \
@@ -162,48 +194,32 @@ We provide pre-trained models [here]() and they have been put to the right path.
   ```
   - Following is an example for the _**in the wild**_ experiment:
   ```
-  cd test
-  model_path=./dataset/in_the_wild_train/models/in_the_wild/run_0/model.pth.tar
-  python3 pred_eval_list.py --model_path $model_path --resize_size 128 \
+  config_name=in_the_wild
+  model_path=./dataset/in_the_wild_train/models/in_the_wild_val/in_the_wild/run_0/model.pth
+  python3 pred_eval.py --model_path $model_path --config_name $config_name \
   --test_data_paths \  
-  ./dataset/in_the_wild_test/annotations/in_the_wild_test_closed_set.txt \
+  ./dataset/in_the_wild_test/annotations/in_the_wild_test.txt \
   ./dataset/in_the_wild_test/annotations/in_the_wild_test_cross_dataset.txt  
   ```
   After running, the result will be saved in `./${data_path}/${test_collection}$/pred/${config_name}/run_${run_id}/result.txt`.
-
-2. To evalute the model's robustness against common post processings. Specify settings in `./scipt/run_test_robustness.sh` and run:
-  ```
-  sh ./script/run_test_robustness.sh
-  ```
-  - Following is an example for the _**celebA**_ experiment:
-  ```
-  cd test
-  model_path=./dataset/celeba_train/models/multiple_cross/run_0/model.pth.tar
-  python3 pred_eval_rob.py --model_path $model_path --resize_size 512 \
-  --perturb_type crop blur jpeg noise light \
-  --test_data_paths \  
-  ./dataset/celeba_test/annotations/celeba_test_closed_set.txt \
-  ./dataset/celeba_test/annotations/celeba_test_cross_dataset.txt  
-  ```
-  After running, the result will be saved in `./${data_path}/${test_collection}$/pred/${config_name}/run_${run_id}/result_${perturb_type}.txt`.
-
-
+  
+ 
 <!-- ## Visualization
 
 1. To viusalize the learned features using TSNE.
 2. To visulize what regions the model relies on for decision using GradCAM.
 
  -->
-## Citation
+<!-- ## Citation
 If you find our model/method/dataset useful, please cite our work
 ```
 
-```
+``` -->
 
 ## Acknowledgement
 This work was supported by the Project of Chinese Academy of Sciences (E141020), the Project of Institute of Computing Technology, Chinese Academy of Sciences (E161020), Zhejiang Provincial Key Research and Development Program of China (No. 2021C01164), and the National Natural Science Foundation of China (No. 62172420).
 
-<!-- last update: December, 2021 <br>
+<!-- last update: Feb, 2022 <br>
 Tianyun Yang <br>
 yangtianyun19z At ict dot ac dot cn <br>
  -->
