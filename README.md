@@ -59,7 +59,7 @@ You can download the whole dataset from [here](), the detailed information about
 | 1024x1024| StyleGAN2 | FFHQ, Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | 
 
 ## Data preparation
-- Download dataset, and put them into the directory `./datasets`.
+- Download dataset, and put them into the directory `./dataset`.
 - Prepare dataset split for training, validation, closed-set testing and cross testings.
   - Prepare dataset for the _**celebA**_ experiment. 
   ```
@@ -106,7 +106,7 @@ Please refer to our paper and supp for more details. -->
   ```
   sh ./script/run_train_pretrain.sh
   ```
-After training, the model and logs are saved in `./dataset/pretrain_train/models/pretrain_val/run_0/model.pth`.
+After training, the model and logs are saved in `./dataset/pretrain_train/models/pretrain_val/pretrain/run_0/model.pth`.
 
 ## Training 
 1. Specify training configurations in `./configs/${config_name}.py` <br> 
@@ -141,7 +141,7 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
   val_collection=lsun_val
   config_name=lsun
   run_id=0
-  pretrain_model_path=./datasets/pretrain_train/models/model.pth
+  pretrain_model_path=./datasets/pretrain_train/models/pretrain_val/pretrain/run_0/model.pth
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
   --config_name $config_name --run_id $run_id \
   --pretrain_model_path $pretrain_model_path 
@@ -153,7 +153,7 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
   val_collection=in_the_wild_val
   config_name=in_the_wild
   run_id=0
-  pretrain_model_path=./datasets/pretrain_train/models/model.pth
+  pretrain_model_path=./datasets/pretrain_train/models/pretrain_val/pretrain/run_0/model.pth
   python main.py  --data_path $data_path --train_collection $train_collection --val_collection $val_collection \
   --config_name $config_name --run_id $run_id \
   --pretrain_model_path $pretrain_model_path 
