@@ -96,7 +96,7 @@ You can download the whole dataset from [here](), the detailed information about
           └── ${mode}_val.txt
   ```
   where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
-- **Quick implement**: We provide generated data txt files, they can be download from [here]().
+- **Quick implement**: We provide generated data txt files, they can be download from [Baiduyun(密码:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ).
 
 <!-- ## Empirical Study on GAN Fingerprint
 - Prepare dataset for architecture classification.
@@ -165,7 +165,9 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
 3. After training, the models and logs are saved in `./${data_path}/${train_collection}$/models/${val_collection}/${config_name}/run_${run_id}/`.
 
 ## Pre-trained models
-We provide pre-trained models [here]() and they have been put into the right path, see `model_path` in `./script/run_test.sh`.
+We provide pre-trained models:
+[Baiduyun(密码:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ)
+They have been put into the right path, see `model_path` in `./script/run_test.sh`.
 
 ## Inference 
 To evaluate the trained model on multiple cross-test setups. Specify settings in `./scipt/run_test.sh` and run:
