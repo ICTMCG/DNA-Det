@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='prepare dataset')
     parser.add_argument('--mode', type=str, default='in_the_wild')
-    parser.add_argument('--save_path', type=str, default='./dataset_generate/')
+    parser.add_argument('--save_path', type=str, default='./dataset/')
     args = parser.parse_args()
     
     os.makedirs(args.save_path, exist_ok=True)    

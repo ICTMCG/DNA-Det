@@ -2,9 +2,8 @@
 
 ### Deepfake Network Architecture Attribution
 Tianyun Yang, Ziyao Huang, Juan Cao, Lei Li, Xirong Li<br>
-AAAI 2022
-<img src='fig/teasor.png' width=800>
-[Arxiv](https://arxiv.org/pdf/2202.13843.pdf)
+AAAI 2022 [Arxiv](https://arxiv.org/pdf/2202.13843.pdf)
+<img src='fig/teasor.png' width=1000>
 
 - [Mar 3, 2022] **Note:** The resource links are placeholders for now, we will update them and open source code soon!
 - [Mar 10, 2022] The source code, dataset and models are all released.

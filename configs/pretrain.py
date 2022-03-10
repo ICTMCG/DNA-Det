@@ -23,5 +23,5 @@ class Config(object):
     metric = 'f1'
     max_epochs = 50
     early_stop_bar = 20
-    save_interval= 5
+    save_interval= 1
 
