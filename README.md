@@ -3,7 +3,7 @@
 ### Deepfake Network Architecture Attribution
 Tianyun Yang, Ziyao Huang, Juan Cao, Lei Li, Xirong Li<br>
 AAAI 2022
-<img src='fig/teasor.png' width=800>
+<img src='fig/teasor.' width=800>
 [Arxiv](https://arxiv.org/pdf/2202.13843.pdf)
 
 - [Mar 3, 2022] **Note:** The resource links are placeholders for now, we will update them and open source code soon!
@@ -24,25 +24,7 @@ patchwise contrastive learning to capture globally consistent features that are 
 <!-- - To install the other Python dependencies, run `pip3 install -r requirements.txt`. -->
 
 ## Datasets
-You can download the whole dataset from [here](), the detailed information about this dataset are shown below.
-
-<!-- | Resolution | Real, GAN | Content | Source | Model, Data | 
-|:-----------------:|:---------:|:----------:|:----------:|:----------:|
-| 128x128| Real | CelebA, LSUN-bedroom | [CelebA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [LSUN](https://www.yf.io/p/lsun) | Google drive, Baiduyun|
-| 128x128| ProGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints) | Google drive, Baiduyun|
-| 128x128| MMDGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints) | Google drive, Baiduyun|
-| 128x128| SNGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints) | Google drive, Baiduyun|
-| 128x128| CramerGAN | CelebA, LSUN-bedroom | [GANFingerprint](https://github.com/ningyu1991/GANFingerprints) |Google drive, Baiduyun|
-| 128x128| InfoMaxGAN | CelebA, LSUN-bedroom |[mimicry](https://github.com/kwotsin/mimicry)|Google drive, Baiduyun|
-| 128x128| SSGAN | CelebA, LSUN-bedroom |[mimicry](https://github.com/kwotsin/mimicry)|Google drive, Baiduyun|
-| 256x256| Real | cat, airplane, boat, horse, sofa, cow, dog, train, bicycle, bottle, diningtable, motorbike, sheep, tvmonitor, bird, bus, chair, person, pottedplant, car | [CNNDetection](https://github.com/peterwang512/CNNDetection) | Google drive, Baiduyun|
-| 256x256| ProGAN | cat, airplane, boat, horse, sofa, cow, dog, train, bicycle, bottle, diningtable, motorbike, sheep, tvmonitor, bird, bus, chair, person, pottedplant, car |[CNNDetection](https://github.com/peterwang512/CNNDetection) |Google drive, Baiduyun|
-| 256x256| StackGAN2 |cat, church, bird, bedroom, dog | [StackGAN-v2](https://github.com/hanzhanggit/StackGAN-v2)| Google drive, Baiduyun|
-| 256x256| CycleGAN |winter, orange apple, horse, summer, zebra | [CNNDetection](https://github.com/peterwang512/CNNDetection) |Google drive, Baiduyun|
-| 256x256| StyleGAN2 | cat, church horse | [CNNDetection](https://github.com/peterwang512/CNNDetection) | Google drive, Baiduyun|
-| 1024x1024| Real | FFHQ, CeleA-HQ|  [FFHQ](https://github.com/NVlabs/ffhq-dataset), [CeleA-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) | Google drive, Baiduyun|
-| 1024x1024| StyleGAN | FFHQ, celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | Google drive, Baiduyun|
-| 1024x1024| StyleGAN2 | FFHQ, Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |  Google drive, Baiduyun|  -->
+You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/s/1nCfkyflsZs-ECz7LiUngTQ), the detailed information about this dataset are shown below.
 
 | Resolution | Real, GAN | Content | Source |
 |:-----------------:|:---------:|:----------:|:----------:|
@@ -94,9 +76,9 @@ You can download the whole dataset from [here](), the detailed information about
   └── ${mode}_val
       └── annotations
           └── ${mode}_val.txt
-  ```
+  ``
   where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
-- **Quick implement**: We provide generated data txt files, they can be download from [Baiduyun(密码:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ).
+- **Quick implement**: We provide generated data txt files, they can be downloaded from [Baiduyun(passwd:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ).
 
 <!-- ## Empirical Study on GAN Fingerprint
 - Prepare dataset for architecture classification.
@@ -110,7 +92,7 @@ Please refer to our paper and supp for more details. -->
   ```
   sh ./script/run_train_pretrain.sh
   ```
-After training, the model and logs are saved in `./dataset/pretrain_train/models/pretrain_val/pretrain/run_0/model.pth`.
+After training, the model and logs are saved in `./dataset/pretrain_train/models/pretrain_val/pretrain/run_0/`.
 
 ## Training 
 1. Specify training configurations in `./configs/${config_name}.py` <br> 
@@ -166,7 +148,7 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
 
 ## Pre-trained models
 We provide pre-trained models:
-[Baiduyun(密码:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ)
+[Baiduyun(passwd:08hw)](https://pan.baidu.com/s/1bVFXo9pqudBdK5Rz1juvdQ)
 They have been put into the right path, see `model_path` in `./script/run_test.sh`.
 
 ## Inference 
@@ -208,21 +190,15 @@ To evaluate the trained model on multiple cross-test setups. Specify settings in
   ./dataset/in_the_wild_test/annotations/in_the_wild_test_cross_dataset.txt  
   ```
   After running, the result will be saved in `./${test_data_path}/pred/result.txt`
-  
- 
-<!-- ## Visualization
 
-1. To viusalize the learned features using TSNE.
-2. To visulize what regions the model relies on for decision using GradCAM.
 
- -->
 ## Citation
 If you find our model/method/dataset useful, please cite our work
 ```
-@inproceedings{yang2022aaai,
+@inproceedings{yang2022deepfake,
   title={Deepfake Network Architecture Attribution},
   author={Yang, Tianyun and Huang, Ziyao and Cao, Juan and Li, Lei and Li, Xirong},
-  booktitle={AAAI},
+  booktitle={Proceedings of the 36th AAAI Conference on Artificial Intelligence (AAAI 2022)},
   year={2022}
 }
 ``` 
