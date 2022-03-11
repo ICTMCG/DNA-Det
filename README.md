@@ -201,6 +201,8 @@ To visualize what regions the network focuses on by GradCAM (Figure 6 in our pap
   ```
   sh ./script/do_gradcam.sh
   ```
+<img src='fig/gradcam.png' width=1000>
+
 
 ## Citation
 If you find our model/method/dataset useful, please cite our work
