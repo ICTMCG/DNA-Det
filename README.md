@@ -52,7 +52,6 @@ You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/
   ```
   python generate_data_multiple_cross.py --mode celeba
   ```
-  
   - Prepare dataset for the _**LSUN-bedroom**_ experiment.
   ```
   python generate_data_multiple_cross.py --mode lsun
@@ -77,8 +76,8 @@ You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/
   └── ${mode}_val
       └── annotations
           └── ${mode}_val.txt
-  ``
-  where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the txt files for training, validation, closed-set testing and cross testing spilts. 
+  ```
+  where `{mode}_train.txt, {mode}_val.txt, {mode}_test.txt, {mode}_test_cross_*.txt` are the annotation files for training, validation, closed-set testing and cross testing spilts. 
 - **Quick implement**: We provide generated txt files, they can be downloaded from [Baiduyun(passwd:olci)](https://pan.baidu.com/s/1fzoe9fmxmFuCkDnt5azqTg).
 Put them into the directory `./dataset`.
 
@@ -150,7 +149,7 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
 
 ## Pre-trained models
 We provide pre-trained models:
-[Baiduyun(passwd:olci)](https://pan.baidu.com/s/1fzoe9fmxmFuCkDnt5azqTg)
+[Baiduyun(passwd:olci)](https://pan.baidu.com/s/1fzoe9fmxmFuCkDnt5azqTg).
 They have been put into the right path along with the annotation files , see `model_path` in `./script/run_test.sh`.
 
 ## Inference 
