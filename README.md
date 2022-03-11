@@ -39,7 +39,7 @@ You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/
 | 256x256| ProGAN | cat, airplane, boat, horse, sofa, cow, dog, train, bicycle, bottle, diningtable, motorbike, sheep, tvmonitor, bird, bus, chair, person, pottedplant, car |[CNNDetection](https://github.com/peterwang512/CNNDetection) |
 | 256x256| StackGAN2 |cat, church, bird, bedroom, dog | [StackGAN-v2](https://github.com/hanzhanggit/StackGAN-v2)|
 | 256x256| CycleGAN |winter, orange apple, horse, summer, zebra | [CNNDetection](https://github.com/peterwang512/CNNDetection) |
-| 256x256| StyleGAN2 | cat, church horse | [CNNDetection](https://github.com/peterwang512/CNNDetection) |
+| 256x256| StyleGAN2 | cat, church horse | [StyleGAN2](https://github.com/NVlabs/stylegan2) |
 | 1024x1024| Real | FFHQ, CeleA-HQ|  [FFHQ](https://github.com/NVlabs/ffhq-dataset), [CeleA-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) |
 | 1024x1024| StyleGAN | FFHQ, celebA-HQ, Yellow, Model, Asian Star, kid, elder, adult, glass, male, female, smile | [StyleGAN](https://github.com/NVlabs/stylegan), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) |
 | 1024x1024| StyleGAN2 | FFHQ, Yellow, Wanghong, Asian Star, kid | [StyleGAN2](https://github.com/NVlabs/stylegan2), [seeprettyface](https://github.com/a312863063/seeprettyface-dataset) | 
