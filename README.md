@@ -24,7 +24,7 @@ patchwise contrastive learning to capture globally consistent features that are 
 <!-- - To install the other Python dependencies, run `pip3 install -r requirements.txt`. -->
 
 ## Datasets
-You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/s/1nCfkyflsZs-ECz7LiUngTQ), the detailed information about this dataset are shown below.
+You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/s/1nCfkyflsZs-ECz7LiUngTQ), the detailed information about this dataset is shown below.
 
 | Resolution | Real, GAN | Content | Source |
 |:-----------------:|:---------:|:----------:|:----------:|
