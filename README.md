@@ -97,7 +97,7 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
 
 ## Training 
 1. Specify training configurations in `./configs/${config_name}.py` <br> 
-2. Specify settings including config_name, data_path and so on in `./scipt/run_train.sh` and run:
+2. Specify settings including config_name, data_path and so on in `./script/run_train.sh` and run:
   ```
   sh ./script/run_train.sh
   ```
@@ -150,10 +150,10 @@ After training, the model and logs are saved in `./dataset/pretrain_train/models
 ## Pre-trained models
 We provide pre-trained models:
 [Baiduyun(passwd:olci)](https://pan.baidu.com/s/1fzoe9fmxmFuCkDnt5azqTg).
-They have been put into the right path along with the annotation files , see `model_path` in `./script/run_test.sh`.
+They have been put into the right path along with the annotation files. See `model_path` in [./script/run_test.sh](https://github.com/ICTMCG/DNA-Det/blob/main/scripts/do_test.sh).
 
 ## Inference 
-To evaluate the trained model on multiple cross-test setups. Specify settings in `./scipt/run_test.sh` and run:
+To evaluate the trained model on multiple cross-test setups. Specify settings in `./script/run_test.sh` and run:
   ```
   sh ./script/run_test.sh
   ```
