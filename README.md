@@ -192,6 +192,15 @@ To evaluate the trained model on multiple cross-test setups. Specify settings in
   ```
   After running, the result will be saved in `./${test_data_path}/pred/result.txt`
 
+## Visualization
+To visualize feature space on cross data by t-SNE (Figure 1 in our paper),
+  ```
+  sh ./script/do_tsne.sh
+  ```
+To visualize what regions the network focuses on by GradCAM (Figure 6 in our paper),
+  ```
+  sh ./script/do_gradcam.sh
+  ```
 
 ## Citation
 If you find our model/method/dataset useful, please cite our work

@@ -21,7 +21,6 @@ def get_last_conv_name(net):
     """
     layer_name = None
     for name, m in net.named_modules():
-        print('name',name)
         if isinstance(m, nn.Conv2d):
             layer_name = name
     print('layer_name',layer_name)
