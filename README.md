@@ -46,7 +46,7 @@ You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/
 
 ## Data preparation
 - Download dataset, and put it into the directory `./dataset`.
-- Download the train part of [CNNDetection](https://github.com/peterwang512/CNNDetection) dataset, and put it into the directory `./dataset`.
+- Download the train part of [CNNDetection](https://github.com/peterwang512/CNNDetection) dataset, and put it into the directory `./dataset/GANs`.
 - Prepare annotation files for training, validation, closed-set testing and cross testings.
   - Prepare dataset for the _**celebA**_ experiment. 
   ```
