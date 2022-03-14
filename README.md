@@ -24,7 +24,7 @@ patchwise contrastive learning to capture globally consistent features that are 
 <!-- - To install the other Python dependencies, run `pip3 install -r requirements.txt`. -->
 
 ## Datasets
-You can download the dataset from [Baiduyun(passwd:nlof)](https://pan.baidu.com/s/1nCfkyflsZs-ECz7LiUngTQ), the detailed information about this dataset is shown below.
+You can download the dataset after an application: [Application to Use the Dataset for Deepfake Network Architecture Attribution](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__ggzrUxUODZDUUFQSkNIT1gzUlEwMDVQTUhOTTJVVC4u), the detailed information about this dataset is shown below.
 
 | Resolution | Real, GAN | Content | Source |
 |:-----------------:|:---------:|:----------:|:----------:|
@@ -222,19 +222,4 @@ This work was supported by the Project of Chinese Academy of Sciences (E141020),
 Tianyun Yang <br>
 yangtianyun19z At ict dot ac dot cn <br>
  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
