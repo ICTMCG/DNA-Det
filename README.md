@@ -24,7 +24,16 @@ patchwise contrastive learning to capture globally consistent features that are 
 <!-- - To install the other Python dependencies, run `pip3 install -r requirements.txt`. -->
 
 ## Datasets
-You can download the dataset after an application: [Application to Use the Dataset for Deepfake Network Architecture Attribution](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__ggzrUxUODZDUUFQSkNIT1gzUlEwMDVQTUhOTTJVVC4u), the detailed information about this dataset is shown below.
+<!-- You can download the dataset after an application: [Application to Use the Dataset for Deepfake Network Architecture Attribution](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__ggzrUxUODZDUUFQSkNIT1gzUlEwMDVQTUhOTTJVVC4u), the detailed information about this dataset is shown below. -->
+
+You can download the dataset using the following links:
+
+Option1: [Baiduyun Link](https://pan.baidu.com/s/1MR8za0X7jOpcmkPa2YnWGg)(Passwd:3cop)
+
+Option2: Google Drive Links including [part1](https://drive.google.com/drive/folders/1pEVk9LkroMp40NTOPAlQ649ZYZAhpXQr?usp=sharing)
+[part2](https://drive.google.com/drive/folders/1tDjn12eaLalRHDFMZ-3bkp3TieacsI_w?usp=sharing)
+[part3](https://drive.google.com/drive/folders/1Y6KqKkOikU_miKKYuQycUarOdM3SNEfZ?usp=sharing)
+[part4](https://drive.google.com/drive/folders/1dkn31eHGv3CTxwvGWha9C2k0mGUpzXSd?usp=sharing)
 
 | Resolution | Real, GAN | Content | Source |
 |:-----------------:|:---------:|:----------:|:----------:|
